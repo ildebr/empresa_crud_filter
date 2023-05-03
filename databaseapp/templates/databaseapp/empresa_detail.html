@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+
+{% block title %}
+<title>Detalle de Empresa</title>
+{% endblock title %}
+
+{% block content %}
+
+<section class="empresa_detail_section">
+    <div class="container">
+        <div class="row">
+            <a href="{% url 'empresa_list_filter' %}">Volver al listado</a>
+        </div>
+        <div class="row">
+            <h2>{{ empresa.nombre_empresa }} <a href="{% url 'empresa_update' empresa.pk %}">Editar</a></h2>
+        </div>
+        
+
+
+{{ empresa.as_p }}
+    </div>
+</section>
+{% endblock %}

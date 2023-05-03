@@ -1,0 +1,55 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Lista de Empresa</title>
+{% endblock title %}
+
+{% block content %}
+<div class="empresa-list-section">
+  <div class="container">
+    <h1>Filtrar</h1>
+
+    <form class="filter-form">
+      {{ form.as_p }}
+      <button class="btn btn-primary">Buscar</button>
+    </form>
+
+    <a href="{% url 'empresa_create' %}" class="btn btn-secondary">Crear Empresa</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Localidad</th>
+            </tr>
+          </thead>
+    {% for object in empresas %}
+  
+  
+  
+    
+    <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><a href="{{object.get_absolute_url}}">{{ object.nombre_empresa }}</a></td>
+          <td>{{ object.direccion }}</td>
+          <td>{{ object.localidad }}</td>
+        </tr>
+      </tbody>
+  
+  {% empty %}
+  <h2>No hay empresas registradas</h2>
+
+  {% endfor %}
+
+
+  
+    
+    
+  </table>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+
+<section class="register-section">
+  <div class="container">
+    
+  <header class="register-header">
+    <h2>Crea tu cuenta</h2>
+  </header>
+
+  {% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+  {% if form.non_field_errors %}
+    <ul class='form-errors'>
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <form action="" method="post">
+    {% csrf_token %}
+
+
+    <label for="{{ form.username.id_for_label }}">
+      {{ form.username }}
+      <span class="input-placeholder"> {{form.username.name}} </span>
+    </label>
+
+    <label for="{{ form.email.id_for_label }}">
+      {{ form.email }}
+      <span class="input-placeholder"> {{form.email.name}} </span>
+    </label>
+
+    <label for="{{ form.password1.id_for_label }}">
+      {{ form.password1 }}
+      <span class="input-placeholder"> password </span>
+    </label>
+
+    <label for="{{ form.password2.id_for_label }}">
+      {{ form.password2 }}
+      <span class="input-placeholder"> Confirm password </span>
+    </label>
+
+    {{ form.password1.help_text}}
+    <input type="submit" value="Sign up" class="signup-button auth__button"/>
+    {% load static %}
+      <a href="{% url 'google_login' %}" class="signup-button auth__button google-button"> <img src="{% static 'img/g-normal.png' %}" alt="barras" class="google-icon"> Log in with Google</a>
+  </form>
+  
+  </div>
+</section> 
+
+
+{% endblock %}
