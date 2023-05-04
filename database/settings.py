@@ -133,5 +133,5 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 
 LOGIN_URL = 'login-c'
-LOGIN_REDIRECT_URL = '/empresa/list'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/cuentas/login'

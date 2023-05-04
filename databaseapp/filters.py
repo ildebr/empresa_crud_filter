@@ -25,6 +25,7 @@ class EmpresaFilter(django_filters.FilterSet):
                 'instagram', 
                 'twitter', 
                 'youtube', 
-                'booksy', 
+                'booksy',
+                'tiene_booksy', 
                 'estado' ]
         

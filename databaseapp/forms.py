@@ -33,6 +33,7 @@ class NewEmpresaForm(forms.ModelForm):
         self.fields['youtube'].widget.attrs.update({'class':'input_field form-control'})
         self.fields['booksy'].widget.attrs.update({'class':'input_field form-control'})
         self.fields['estado'].widget.attrs.update({'class':'input_field form-control'})
+        self.fields['nota'].widget.attrs.update({'class':'input_field form-control'})
 
 
 class NewUserForm(UserCreationForm):

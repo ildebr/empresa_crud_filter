@@ -85,6 +85,7 @@ def login(request):
         if f.is_valid():
             f.save()
             messages.success(request,'Login Successful')
+            print("perr")
             return HttpResponseRedirect(reverse('empresa_list_filter'))
         messages.error(request,'error')
     else:

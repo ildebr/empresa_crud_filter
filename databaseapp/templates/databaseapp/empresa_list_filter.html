@@ -9,9 +9,10 @@
   <div class="container">
     <h1>Filtrar</h1>
 
-    <form class="filter-form">
+    <form class="filter-form" id="filter-form">
       {{ form.as_p }}
       <button class="btn btn-primary">Buscar</button>
+      <button class="btn btn-secondary" id="limpiar">Limpiar</button>
     </form>
 
     <a href="{% url 'empresa_create' %}" class="btn btn-secondary">Crear Empresa</a>
@@ -32,7 +33,7 @@
     
     <tbody>
         <tr>
-          <th scope="row">1</th>
+          <th scope="row">{{ object.pk }}</th>
           <td><a href="{{object.get_absolute_url}}">{{ object.nombre_empresa }}</a></td>
           <td>{{ object.direccion }}</td>
           <td>{{ object.localidad }}</td>
@@ -51,5 +52,13 @@
   </table>
   </div>
 </div>
+
+<script>
+  limpiarBtn = document.querySelector("#limpiar")
+
+  limpiarBtn.addEventListener('click', (e) =>{
+    document.getElementById("filter-form").reset();
+  })
+</script>
 
 {% endblock %}
